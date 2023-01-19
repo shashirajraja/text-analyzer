@@ -1,4 +1,5 @@
 import './App.css';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import TextAnalyzer from './components/TextAnalyzer';
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Navbar></Navbar>
       <TextAnalyzer></TextAnalyzer>
+      <Footer></Footer>
     </>
   );
 }
