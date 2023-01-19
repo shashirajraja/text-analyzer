@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
   return (
     <>
-    <footer className="bg-light text-center text-white">
+    <footer className="bg-light text-center text-white" >
   {/* <!-- Grid container --> */}
   <div className="container p-4 pb-0">
     {/* <!-- Section: Social media --> */}

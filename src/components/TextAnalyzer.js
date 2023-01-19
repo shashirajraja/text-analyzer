@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import ContentDetails from './ContentDetails';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 function TextAnalyzer() {
     const [text,setText] = useState("");
@@ -35,6 +37,7 @@ function TextAnalyzer() {
 
     return (
       <>
+      <Navbar/>
       <div className='container px-5'>
         <div className="form-group text-center">
             <label htmlFor="text" className='contentTitle'><h2>Enter Text To Analyze & Convert</h2></label>
@@ -61,6 +64,7 @@ function TextAnalyzer() {
         </div>
     </div>
     <ContentDetails content={text}></ContentDetails>
+    <Footer/>
     </>
   )
 }

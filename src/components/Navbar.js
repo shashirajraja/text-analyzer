@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../index.css'
 function Navbar() {
   
@@ -11,8 +12,8 @@ function Navbar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav font-weight-bold">
-                    <a className="nav-item nav-link mx-2 navBtn text-white" href="/">Home</a>
-                    <a className="nav-item nav-link mx-2 navBtn text-white" href="/" >About Us</a>
+                    <Link to={"/"} className="nav-item nav-link mx-2 navBtn text-white">Home</Link>
+                    <Link to={"/about"} className="nav-item nav-link mx-2 navBtn text-white">About Us</Link>
                 </div>
             </div>
             <div className="form-check form-switch">

@@ -1,14 +1,17 @@
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+import AboutUs from './components/AboutUs';
 import TextAnalyzer from './components/TextAnalyzer';
 
 function App() {
   return (
     <>
-      <Navbar></Navbar>
-      <TextAnalyzer></TextAnalyzer>
-      <Footer></Footer>
+        <HashRouter>
+          <Routes>
+            <Route path={['/',""]} element={<TextAnalyzer/>}></Route>
+            <Route path='/about' element={<AboutUs/>}></Route>
+          </Routes>
+        </HashRouter>
     </>
   );
 }
