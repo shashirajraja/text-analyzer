@@ -12,8 +12,8 @@ function Navbar() {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav font-weight-bold">
-                    <Link to={"/"} className="nav-item nav-link mx-2 navBtn text-white">Home</Link>
-                    <Link to={"/about"} className="nav-item nav-link mx-2 navBtn text-white">About Us</Link>
+                    <Link to="/" className="nav-item nav-link mx-2 navBtn text-white">Home</Link>
+                    <Link to="/about" className="nav-item nav-link mx-2 navBtn text-white">About Us</Link>
                 </div>
             </div>
             <div className="form-check form-switch">

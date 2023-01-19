@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
+import Alert from './Alert';
 import ContentDetails from './ContentDetails';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
 function TextAnalyzer() {
     const [text,setText] = useState("");
+    const [alert, setAlert] = useState({message:"", type:""})
     const handleOnChange = (event)=> setText(event.target.value);
     const copyToClipboard = () => navigator.clipboard.writeText(text)
     const convertToUppercase = ()=> setText(text.toUpperCase())
@@ -13,15 +15,16 @@ function TextAnalyzer() {
     const convertToSentenceCase = ()=> setText(text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,function(c){return c.toUpperCase()}))
     const removeSpaces = ()=> setText(text.replace(/\s/g,''))
     const stringifyContent = ()=> setText(JSON.stringify(text))
-    const clearContent = ()=> setText("")
-    
+    const clearContent = ()=> {setText("") }
+    const showAlert = (message, type="Success") => setAlert({"message":message, "type":type}) 
 
     const prettyPrint = ()=>{
         try{
             var pretty = JSON.stringify(JSON.parse(text),undefined, 4);
             setText(pretty)
+            showAlert("Text Formatted to Pretty JSON");
         }catch(err){
-            alert("Not a valid JSON")
+            showAlert("Not a valid JSON","danger")
         }
     }
 
@@ -31,13 +34,14 @@ function TextAnalyzer() {
             if(typeof txtCopy !== 'object')
                 setText(txtCopy);
         } catch(err){
-            alert("Not a Valid JSON String");
+            showAlert("Not a valid JSON String","danger")
         }
     }
 
     return (
       <>
       <Navbar/>
+      <Alert alert={alert}/>
       <div className='container px-5'>
         <div className="form-group text-center">
             <label htmlFor="text" className='contentTitle'><h2>Enter Text To Analyze & Convert</h2></label>
