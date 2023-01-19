@@ -8,8 +8,8 @@ function App() {
     <>
         <HashRouter>
           <Routes>
-            <Route path={['/',""]} element={<TextAnalyzer/>}></Route>
-            <Route path='/about' element={<AboutUs/>}></Route>
+            <Route exact path='/' element={<TextAnalyzer/>}></Route>
+            <Route exact path='/about' element={<AboutUs/>}></Route>
           </Routes>
         </HashRouter>
     </>
