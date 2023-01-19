@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../index.css'
+import Logo from '../logo512.png';  //  src/images
+
 function Navbar() {
   
     return (
     <>
      <nav className="navbar navbar-expand-lg navbar-light bg-primary" >
         <div className='container text-white'>
+            <a href="https://www.youtube.com/@bittercode?sub_confirmation=1" className="navbar-brand d-none d-md-block d-sm-none" rel="noreferrer" target={"_blank"}>
+                <img src={Logo} alt="BitterCode" width="50" height="44" style={{marginTop:"-10px", marginBottom:"-10px"}} />
+            </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
