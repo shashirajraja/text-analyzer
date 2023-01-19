@@ -1,9 +1,13 @@
 import './App.css';
+import Navbar from './components/Navbar';
 import TextAnalyzer from './components/TextAnalyzer';
 
 function App() {
   return (
-    <TextAnalyzer></TextAnalyzer>
+    <>
+      <Navbar></Navbar>
+      <TextAnalyzer></TextAnalyzer>
+    </>
   );
 }
 

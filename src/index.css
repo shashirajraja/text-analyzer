@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navBtn {
+  color: #ffff80;
+  font-weight:bold;
+}
+
+.navBtn {
+  font-weight: bold;
+}
+.navBtn:hover, .navBtn.active {
+	border-bottom: 4px #ffff80 solid;
+	border-radius: 13px;
+	color: #ffff80;
+	padding-bottom:2px;
+  font-weight:bold;
+}
+
+.contentTitle {
+    border: 0px solid black;
+    color: hsl(89, 43%, 51%);
+    text-align: center;
+    font-weight: bold;
+    margin: auto;
+    font-style: oblique;
+    text-shadow: 2px 2px black
+}
