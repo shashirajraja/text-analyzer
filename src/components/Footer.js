@@ -14,7 +14,7 @@ function Footer() {
         style={{backgroundColor: "#3b5998"}}
         href="https://www.youtube.com/@bittercode?sub_confirmation=1"
         role="button"
-        ><i className="fa-brands fa-youtube"></i
+        ><i className="fab fa-youtube"></i
       ></a>
 
       {/* <!-- Twitter --> */}
