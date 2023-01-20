@@ -24,11 +24,11 @@ function ContentDetails(props) {
     return (
     <>
         <div className={(mode === "light" ? "bg-white text-dark " : "bg-secondary text-white")}>
-        <div className='container px-5 '>
+        <div className='container-sm px-sm-5 '>
             <h4 className={`text-warning text-center ${mode==='dark'?"contentTitle text-white":""}`}>TEXT ANALYSIS REPORT</h4>
             <hr></hr>
             <div className='row' style={contentKeyStyle}>
-                <div className='col-md-4 mx-1'>
+                <div className='col-md-4'>
                     <h6>Time To Read: <span style={contentValueStyle}>{content.length * 0.008} Minutes</span></h6>
                     <h6>Total Length: <span style={contentValueStyle}>{content.length}</span></h6>
                 </div>
