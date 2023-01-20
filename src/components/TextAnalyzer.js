@@ -8,33 +8,40 @@ function TextAnalyzer() {
     const [text,setText] = useState("");
     const [alert, setAlert] = useState({message:"", type:""})
     const handleOnChange = (event)=> setText(event.target.value);
-    const copyToClipboard = () => navigator.clipboard.writeText(text)
-    const convertToUppercase = ()=> setText(text.toUpperCase())
-    const convertToLowercase = ()=> setText(text.toLowerCase())
-    const convertToTitleCase = ()=> setText(text.replace(/\w\S*/g,function(txt) {return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();}))
-    const convertToSentenceCase = ()=> setText(text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,function(c){return c.toUpperCase()}))
-    const removeSpaces = ()=> setText(text.replace(/\s/g,''))
-    const stringifyContent = ()=> setText(JSON.stringify(text))
-    const clearContent = ()=> {setText("") }
-    const showAlert = (message, type="Success") => setAlert({"message":message, "type":type}) 
+    const copyToClipboard = () => {navigator.clipboard.writeText(text); showAlert("Copied To Clipboard")}
+    const convertToUppercase = ()=> { setText(text.toUpperCase()); showAlert("Converted To Uppercase")}
+    const convertToLowercase = ()=> { setText(text.toLowerCase()); showAlert("Converted To Lowercase")}
+    const convertToTitleCase = ()=> { setText(text.replace(/\w\S*/g,function(txt) {return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();})); showAlert("Converted To TitleCase")}
+    const convertToSentenceCase = ()=> { setText(text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g,function(c){return c.toUpperCase()})); showAlert("Converted To Sentencecase")}
+    const removeSpaces = ()=> { setText(text.replace(/\s/g,'')); showAlert("Spaces Removed From the Text")}
+    const stringifyContent = ()=> { setText(JSON.stringify(text)) ; showAlert("Text Stringified")}
+    const clearContent = ()=> { setText(""); showAlert("Content Cleared")}; 
+    const showAlert = (message, type="success") => {
+        setAlert({"message":message, "type":type}) ;
+        setTimeout(function(){
+            setAlert({}) 
+        },
+        2000)
+    }
 
     const prettyPrint = ()=>{
         try{
             var pretty = JSON.stringify(JSON.parse(text),undefined, 4);
             setText(pretty)
-            showAlert("Text Formatted to Pretty JSON");
+            showAlert("Text Formatted to Pretty JSON","success");
         }catch(err){
-            showAlert("Not a valid JSON","danger")
+            showAlert("Text is not a valid JSON","warning")
         }
     }
 
     const unStringifyContent = () =>{
         try{
             let txtCopy = JSON.parse(text); 
-            if(typeof txtCopy !== 'object')
+            if(typeof txtCopy !== 'object') 
                 setText(txtCopy);
+            showAlert("Text Unstringified","success");
         } catch(err){
-            showAlert("Not a valid JSON String","danger")
+            showAlert("Text is not a valid JSON String","warning")
         }
     }
 

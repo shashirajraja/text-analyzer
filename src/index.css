@@ -37,3 +37,12 @@ code {
     font-style: oblique;
     text-shadow: 2px 2px black
 }
+
+.alert{
+  border-radius: 18px;
+  box-shadow: 0 0 20px 0 #00000070;
+  position: relative;
+  z-index:10;
+  float:right;
+  right:10px;
+}
