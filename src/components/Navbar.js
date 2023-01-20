@@ -19,6 +19,7 @@ function Navbar() {
                 <div className="navbar-nav font-weight-bold">
                     <Link to="/" className="nav-item nav-link mx-2 navBtn text-white">Home</Link>
                     <Link to="/about" className="nav-item nav-link mx-2 navBtn text-white">About Us</Link>
+                    <Link to="/privacy" className="nav-item nav-link mx-2 navBtn text-white">Privacy Policy</Link>
                 </div>
             </div>
             <div className="form-check form-switch">
