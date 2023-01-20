@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import '../index.css'
-import Logo from '../logo512.png';  //  src/images
+import Logo from '../../logo512.png';  //  src/images
 
 function Navbar() {
   

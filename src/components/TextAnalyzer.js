@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Alert from './Alert';
+import Alert from './common/Alert';
 import ContentDetails from './ContentDetails';
-import Footer from './Footer';
-import Navbar from './Navbar';
+import Footer from './common/Footer';
+import Navbar from './common/Navbar';
 
 function TextAnalyzer() {
     const [text,setText] = useState("");
