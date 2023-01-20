@@ -4,7 +4,8 @@ import ContentDetails from './ContentDetails';
 import Footer from './common/Footer';
 import Navbar from './common/Navbar';
 
-function TextAnalyzer() {
+function TextAnalyzer(props) {
+    const {mode, toggleMode} = props
     const [text,setText] = useState("");
     const [alert, setAlert] = useState({message:"", type:""})
     const handleOnChange = (event)=> setText(event.target.value);
@@ -16,6 +17,8 @@ function TextAnalyzer() {
     const removeSpaces = ()=> { setText(text.replace(/\s/g,'')); showAlert("Spaces Removed From the Text")}
     const stringifyContent = ()=> { setText(JSON.stringify(text)) ; showAlert("Text Stringified")}
     const clearContent = ()=> { setText(""); showAlert("Content Cleared")}; 
+    const primaryColor = mode === "light" ? "primary" : "dark";
+
     const showAlert = (message, type="success") => {
         setAlert({"message":message, "type":type}) ;
         setTimeout(function(){
@@ -47,35 +50,37 @@ function TextAnalyzer() {
 
     return (
       <>
-      <Navbar/>
+      <div className={(mode === "light" ? "bg-white text-dark " : "bg-secondary text-white")}>
+      <Navbar mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
-      <div className='container px-5'>
+      <div className={'container px-5 ' +(mode === "light" ? "bg-white text-dark " : "bg-secondary text-white")}>
         <div className="form-group text-center">
-            <label htmlFor="text" className='contentTitle'><h2>Enter Text To Analyze & Convert</h2></label>
-            <textarea className="form-control" id="text" rows="6" value={text} onChange={handleOnChange}></textarea>
+            <label htmlFor="text" className={`contentTitle ${mode==="dark"?" text-white":""}`}><h2>Enter Text To Analyze & Convert</h2></label>
+            <textarea className={`form-control ${mode==="dark" ? "bg-dark text-white" : "bg-white text-dark"}`} id="text" rows="6" value={text} onChange={handleOnChange}></textarea>
         </div>
         <br></br>
         <div className='row'>
             <div className='col-md-5 text-center'>
                 <button className='btn btn-info mx-1 my-1' onClick={copyToClipboard}>Copy</button>
-                <button className='btn btn-primary mx-1 my-1' onClick={convertToUppercase}>Upper Case</button>
-                <button className='btn btn-primary mx-1 my-1' onClick={convertToLowercase}>Lower Case</button>
-                <button className='btn btn-primary mx-1 my-1' onClick={convertToTitleCase}>Title Case</button>
-                <button className='btn btn-primary mx-1 my-1' onClick={convertToSentenceCase}>Sentence Case</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={convertToUppercase}>Upper Case</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={convertToLowercase}>Lower Case</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={convertToTitleCase}>Title Case</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={convertToSentenceCase}>Sentence Case</button>
             </div>
             <div className='col-md-4 text-center'>
-                <button className='btn btn-primary mx-1 my-1' onClick={prettyPrint}>Prettify JSON</button>
-                <button className='btn btn-primary mx-1 my-1' onClick={stringifyContent}>Stringify </button>
-                <button className='btn btn-primary mx-1 my-1' onClick={unStringifyContent}>UnStringify </button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={prettyPrint}>Prettify JSON</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={stringifyContent}>Stringify </button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={unStringifyContent}>UnStringify </button>
             </div>
             <div className='col-md-3 text-center'>
-                <button className='btn btn-primary mx-1 my-1' onClick={removeSpaces}>Remove Spaces</button>
+                <button className={`btn btn-${primaryColor} mx-1 my-1`} onClick={removeSpaces}>Remove Spaces</button>
                 <button className='btn btn-danger mx-1 my-1' onClick={clearContent}>Clear</button>
             </div>
         </div>
     </div>
-    <ContentDetails content={text}></ContentDetails>
-    <Footer/>
+    <ContentDetails content={text} mode={mode}></ContentDetails>
+    <Footer mode={mode}/>
+    </div>
     </>
   )
 }

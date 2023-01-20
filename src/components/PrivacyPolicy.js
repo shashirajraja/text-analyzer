@@ -2,12 +2,13 @@ import React from 'react'
 import Footer from './common/Footer';
 import Navbar from './common/Navbar';
 
-function PrivacyPolicy() {
+function PrivacyPolicy(props) {
   return (
     <>
-    <Navbar/>
+    <Navbar mode={props.mode} toggleMode={props.toggleMode}/>
+    <div className={(props.mode === "light" ? "bg-white text-dark" : "bg-secondary text-white ")}>
     <div className='container px-5'>
-    <h2 className='contentTitle'>Privacy Policy for Text Analyzer</h2><br/>
+    <h2 className={`contentTitle ${props.mode==="dark"?" text-white":""}`}>Privacy Policy for Text Analyzer</h2><br/>
     <p>At Text Analyzer, accessible at https://shashirajraja.github.io/text-analyzer/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Text Analyzer and how we use it.</p>
     <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at thebittercode@gmail.com</p>
     <p>This privacy policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Text Analyzer. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the <a href="https://satishkushwaha.com/privacy-policy-generator/">Free Privacy Policy Generator</a>.</p>
@@ -67,7 +68,8 @@ function PrivacyPolicy() {
     <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
     <p>Text Analyzer does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
     </div>
-    <Footer/>
+    <Footer mode={props.mode}/>
+    </div>
     </>
   )
 }

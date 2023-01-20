@@ -1,11 +1,13 @@
 import React from 'react'
 
-function Footer() {
+function Footer(props) {
+  const {mode} = props
   return (
     <>
-    <footer className="bg-light text-center text-white" >
+    <div className={(mode === "light" ? "bg-white text-dark " : "bg-secondary text-white")}>
+    <footer className="text-center" >
   {/* <!-- Grid container --> */}
-  <div className="container p-4 pb-0">
+  <div className="container p-4 pb-0" >
     {/* <!-- Section: Social media --> */}
     <section className="mb-4">
       {/* <!-- Youtube --> */}
@@ -73,6 +75,7 @@ function Footer() {
   </div>
   {/* <!-- Copyright --> */}
 </footer>
+</div>
     </>
   )
 }
