@@ -11,7 +11,7 @@ function PrivacyPolicy(props) {
     <h2 className={`contentTitle ${props.mode==="dark"?" text-white":""}`}>Privacy Policy for Text Analyzer</h2><br/>
     <p>At Text Analyzer, accessible at https://shashirajraja.github.io/text-analyzer/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Text Analyzer and how we use it.</p>
     <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at thebittercode@gmail.com</p>
-    <p>This privacy policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Text Analyzer. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the <a href="https://satishkushwaha.com/privacy-policy-generator/">Free Privacy Policy Generator</a>.</p>
+    <p>This privacy policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Text Analyzer. This policy is not applicable to any information collected offline or via channels other than this website.</p>
     <p><strong>Consent</strong></p>
     <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
     <p><strong>Information we collect</strong></p>
