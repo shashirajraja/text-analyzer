@@ -20,20 +20,24 @@ function ContentDetails(props) {
         }
         return i;
     }
-
-    const timeToRead = ()=>{
+    const timeToRead = (wpm)=>{
         // Talk Time estimate is based on the reading rate of 183 words per minute 
         // - which is considered to be the average reading rate for adults according to scientific research. 
         // Silent Reading Time is estimated based on a reading speed of 234 words per minute.
-        let timeInSec = countWord() / (183/60);
-        let timeInMin = 0;
+        let timeInSec = countWord() / (wpm/60);
+        let timeInMin = 0, timeInMs = 0;
         if(timeInSec >= 60) {
             timeInMin = timeInSec/60;
             timeInSec = timeInSec % 60;
-            return `${timeInMin.toFixed(0)} Minutes ${timeInSec.toFixed(0)} Seconds`
+            return `${timeInMin.toFixed(0)} mins ${timeInSec.toFixed(0)} secs.`
+        } else if(timeInSec > 0 && timeInSec < 1 ) {
+            timeInMs = timeInSec*60;
+            return `${timeInMs.toFixed(0)} msec.`;
         }
-        return `${timeInSec.toFixed(0)} Seconds`;
+        return `${timeInSec.toFixed(0)} secs.`;
     }
+    const talkTime = timeToRead(183);//183 words per minute
+    const silentReadingTime= timeToRead(234); // 234 words per minute
     return (
     <>
         <div className={(mode === "light" ? "bg-white text-dark " : "bg-secondary text-white")}>
@@ -42,8 +46,8 @@ function ContentDetails(props) {
             <hr></hr>
             <div className='row' style={contentKeyStyle}>
                 <div className='col-md-4'>
-                    <h6>Silent Read: <span style={contentValueStyle}>{timeToRead()}</span></h6>
-                    <h6>Total Length: <span style={contentValueStyle}>{content.length}</span></h6>
+                    <h6>Silent Read Time: <span style={contentValueStyle}>{silentReadingTime}</span></h6>
+                    <h6>Talking Time: <span style={contentValueStyle}>{talkTime}</span></h6>
                 </div>
                 <div className='col-md-3'>
                     <h6>Number of Sentences: <span style={contentValueStyle}>{content.length === 0 ? 0 : content.split(/[\w\s]+[.!?]/).length - 1}</span></h6>
