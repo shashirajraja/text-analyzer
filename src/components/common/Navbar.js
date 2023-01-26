@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Logo from '../../logo512.png';  //  src/images
 import PropTypes from 'prop-types'
 
@@ -17,9 +17,9 @@ function Navbar(props) {
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav font-weight-bold">
-                    <Link to="/" className="nav-item nav-link mx-2 navBtn text-white">Home</Link>
-                    <Link to="/privacy" className="nav-item nav-link mx-2 navBtn text-white">Privacy Policy</Link>
-                    <Link to="/about" className="nav-item nav-link mx-2 navBtn text-white">About Us</Link>
+                    <NavLink to="/" className="nav-item nav-link mx-2 navBtn text-white">Home</NavLink>
+                    <NavLink to="/privacy" className="nav-item nav-link mx-2 navBtn text-white">Privacy Policy</NavLink>
+                    <NavLink to="/about" className="nav-item nav-link mx-2 navBtn text-white">About Us</NavLink>
                 </div>
             </div>
             <div className="form-check form-switch" >
